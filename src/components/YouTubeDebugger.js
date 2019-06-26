@@ -16,7 +16,6 @@ class YouTubeDebugger extends Component {
   }
 
   handleBitrateChange = () => {
-    console.log(this);
     this.setState({
       settings: {
         ...this.state.settings,
