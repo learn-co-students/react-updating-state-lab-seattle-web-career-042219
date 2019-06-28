@@ -14,31 +14,31 @@ class YouTubeDebugger extends Component {
 		}
 	}
 
-	handleClickBitrate = (ev) => {
-		this.setState({
-			settings: {
-				...this.state.settings,
-				bitrate: 12
-			}
-		})
-	}
-
-	handleClickResolution = (ev) => {
-		this.setState({
-			settings: {
-				...this.state.settings,
-				video: {
-					resolution: "720p"
+	handleClick = (ev) => {
+		if (ev.target.className === 'bitrate') {
+			this.setState({
+				settings: {
+					...this.state.settings,
+					bitrate: 12
 				}
-			}
-		})
+			})
+		} else if (ev.target.className === 'resolution') {
+			this.setState({
+				settings: {
+					...this.state.settings,
+					video: {
+						resolution: "720p"
+					}
+				}
+			})
+		}
 	}
 
 	render () {
 		return (
 			<div>
-				<button className="bitrate" onClick={this.handleClickBitrate}>Change Bitrate: {this.state.settings.bitrate}</button>
-				<button className="resolution" onClick={this.handleClickResolution}>Change Resolution: {this.state.settings.video.resolution}</button>
+				<button className="bitrate" onClick={this.handleClick}>Change Bitrate: {this.state.settings.bitrate}</button>
+				<button className="resolution" onClick={this.handleClick}>Change Resolution: {this.state.settings.video.resolution}</button>
 			</div>
 		)
 	}
